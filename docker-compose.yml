@@ -3,6 +3,8 @@ services:
   homebridge:
     environment:
       TZ: 'Europe/London'
+      PGID: 1099
+      PUID: 1099
       HOMEBRIDGE_CONFIG_UI: 1
       HOMEBRIDGE_CONFIG_UI_PORT: 8080
     container_name: homebridge
@@ -18,11 +20,13 @@ services:
       options:
         max-size: "10mb"
         max-file: "1"
+    network_mode: host
       # devices:
       # zwave usb serial device
       # - /dev/ttyACM0:/dev/ttyACM0
-    ports:
-      - "8080:8080/tcp"
+      # ports:
+      #   - "52703:52703/tcp"
+      #   - "8080:8080/tcp"
   scrypted:
     environment:
       - TZ='Europe/London'
@@ -35,13 +39,6 @@ services:
     ports:
       - 10443:10443/tcp
       - 11080:11080/tcp
-    # uncomment this and a line below as needed.
-    # devices:
-    # zwave usb serial device
-    #   - /dev/ttyACM0:/dev/ttyACM0
-    # all usb devices, such as coral tpu
-    #   - /dev/bus/usb:/dev/bus/usb
-
     volumes:
       - ./volumes/scrypted:/server/volume
       # modify and add the additional volume for Scrypted NVR
