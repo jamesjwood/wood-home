@@ -35,10 +35,10 @@ services:
     image: koush/scrypted
     container_name: scrypted
     restart: unless-stopped
-    # network_mode: host
-    ports:
-      - 10443:10443/tcp
-      - 11080:11080/tcp
+    network_mode: host
+    # ports:
+    #   - 10443:10443/tcp
+    #   - 11080:11080/tcp
     volumes:
       - ./volumes/scrypted:/server/volume
       # modify and add the additional volume for Scrypted NVR
