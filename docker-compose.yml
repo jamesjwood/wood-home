@@ -8,13 +8,10 @@ services:
       HOMEBRIDGE_CONFIG_UI: 1
       HOMEBRIDGE_CONFIG_UI_PORT: 8080
     container_name: homebridge
-    build:
-      context: ./config/homebridge
-      dockerfile: Dockerfile
+    image: oznu/homebridge:latest
     restart: always
     volumes:
       - ./volumes/homebridge:/homebridge
-      - ./config/homebridge/config.json:/homebridge/config.json
     logging:
       driver: json-file
       options:
@@ -27,31 +24,31 @@ services:
       # ports:
       #   - "52703:52703/tcp"
       #   - "8080:8080/tcp"
-  scrypted:
-    environment:
-      - TZ='Europe/London'
-      - SCRYPTED_WEBHOOK_UPDATE_AUTHORIZATION=Bearer kljhiuho78ti76fjygfjft5errdes
-      - SCRYPTED_WEBHOOK_UPDATE=http://localhost:10444/v1/update
-    image: koush/scrypted
-    container_name: scrypted
-    restart: unless-stopped
-    network_mode: host
-    # ports:
-    #   - 10443:10443/tcp
-    #   - 11080:11080/tcp
-    volumes:
-      - ./volumes/scrypted:/server/volume
-      # modify and add the additional volume for Scrypted NVR
-      # - /media/external:/media/external
-      # logging is noisy and will unnecessarily wear on flash storage.
-      # scrypted has per device in memory logging that is preferred.
-    logging:
-      driver: "json-file"
-      options:
-        max-size: "10m"
-        max-file: "10"
-    labels:
-      - "com.centurylinklabs.watchtower.scope=scrypted"
+    # scrypted:
+    #   environment:
+    #     - TZ='Europe/London'
+    #     - SCRYPTED_WEBHOOK_UPDATE_AUTHORIZATION=Bearer kljhiuho78ti76fjygfjft5errdes
+    #     - SCRYPTED_WEBHOOK_UPDATE=http://localhost:10444/v1/update
+    #   image: koush/scrypted
+    #   container_name: scrypted
+    #   restart: unless-stopped
+    #   network_mode: host
+    #   # ports:
+    #   #   - 10443:10443/tcp
+    #   #   - 11080:11080/tcp
+    #   volumes:
+    #     - ./volumes/scrypted:/server/volume
+    #     # modify and add the additional volume for Scrypted NVR
+    #     # - /media/external:/media/external
+    #     # logging is noisy and will unnecessarily wear on flash storage.
+    #     # scrypted has per device in memory logging that is preferred.
+    #   logging:
+    #     driver: "json-file"
+    #     options:
+    #       max-size: "10m"
+    #       max-file: "10"
+    #   labels:
+    #     - "com.centurylinklabs.watchtower.scope=scrypted"
     # pihole:
     #   container_name: pihole
     #   image: pihole/pihole:latest

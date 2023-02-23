@@ -1,9 +1,9 @@
 # update
-sudo apt-get update
-sudo apt-get upgrade
+sudo apt-get update -y
+sudo apt-get upgrade -y
 # install tailscale
 curl -fsSL https://tailscale.com/install.sh | sh
-tailscale up
+# 
 
 # install docker
 curl -fsSL test.docker.com -o get-docker.sh && sh get-docker.sh
@@ -15,4 +15,6 @@ docker run hello-world
 sudo apt-get install docker-compose-plugin
 
 # run
+
+sudo tailscale up
 docker compose up
