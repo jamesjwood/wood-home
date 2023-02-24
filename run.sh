@@ -15,6 +15,7 @@ docker run hello-world
 sudo apt-get install docker-compose-plugin
 
 # run
+sudo reboot
 
-sudo tailscale up
-docker compose up
+# sudo tailscale up
+# docker compose up
