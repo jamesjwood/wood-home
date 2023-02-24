@@ -1,5 +1,12 @@
 # Setup instructions
 
+## Setup
+1. Ensure git is installed `sudo apt install git`
+1. Clone this repository using `git clone https://github.com/jamesjwood/wood-home.git`
+1. Navigate to this folder `cd wood-home`
+1. Run the install script `sh install.sh`, this should reboot the pi
+1. Run the setup scriot `sh setup.sh`
+
 ## Scrypted
 1. Log in at `http://[ip address of the rasberry pi]:11080`
 1. Install Homekit plugin
