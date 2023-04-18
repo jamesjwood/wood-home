@@ -1,0 +1,1 @@
+{"name":"@scrypted/pam-diff","keywords":["scrypted","plugin","motion","detect","detection","pamdiff","pam","diff"],"scrypted":{"name":"PAM Diff Motion Detection","type":"API","interfaces":["ObjectDetection"],"pluginDependencies":["@scrypted/objectdetector"]},"dependencies":{"pam-diff":"^1.1.0"},"version":"0.0.17"}

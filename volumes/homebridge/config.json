@@ -1,0 +1,42 @@
+{
+    "bridge": {
+        "name": "Homebridge 839B",
+        "username": "0E:CC:2E:56:83:9B",
+        "port": 51960,
+        "pin": "250-73-064",
+        "advertiser": "bonjour-hap"
+    },
+    "accessories": [
+        {
+            "name": "test",
+            "stateful": true,
+            "dimmer": false,
+            "reverse": false,
+            "time": 1000,
+            "random": false,
+            "resettable": false,
+            "brightness": 0,
+            "disableLogging": false,
+            "accessory": "DummySwitch"
+        },
+        {
+            "name": "Guest",
+            "stateful": true,
+            "dimmer": false,
+            "reverse": false,
+            "time": 1000,
+            "random": false,
+            "resettable": false,
+            "brightness": 0,
+            "disableLogging": false,
+            "accessory": "DummySwitch"
+        }
+    ],
+    "platforms": [
+        {
+            "name": "Config",
+            "port": 8080,
+            "platform": "config"
+        }
+    ]
+}
