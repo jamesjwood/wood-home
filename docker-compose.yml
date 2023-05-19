@@ -50,7 +50,7 @@ services:
   unifi:
     image: jacobalberty/unifi:latest
     restart: unless-stopped
-    network_mode: host
+    network_mode: bridge
     volumes:
       - ./config:/unifi
     environment:
